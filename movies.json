@@ -1,36 +1,82 @@
 [
   {
     "id": "avengers-endgame",
-    "title": {"az":"Avengers: Endgame","tr":"Avengers: Endgame","en":"Avengers: Endgame"},
+    "title": { "az": "Avengers: Endgame", "tr": "Avengers: Endgame", "en": "Avengers: Endgame" },
     "desc": {
-      "az":"Avengers bir daha toplanır və Thanosun etdiklərini geri qaytarmaq üçün mübarizə aparır.",
-      "tr":"Avengers tekrar toplanır ve Thanos'un yaptığı yıkımı tersine çevirmek için mücadele eder.",
-      "en":"The Avengers assemble once more to reverse Thanos' actions and restore balance."
+      "az": "Avengers bir daha toplanır və Thanosun etdiklərini geri qaytarmaq üçün mübarizə aparır.",
+      "tr": "Avengers tekrar toplanır ve Thanos'un yaptığı yıkımı tersine çevirmek için mücadele eder.",
+      "en": "The Avengers assemble once more to reverse Thanos' actions and restore balance."
     },
-    "poster":"https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg",
-    "trailer":"https://www.youtube.com/embed/TcMBFSGVi1c",
-    "year":2019,
-    "genre":"Action",
-    "imdb":"8.4",
-    "where":[{"name":"Disney+","url":"https://www.disneyplus.com"}]
+    "poster": "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg",
+    "trailer": "https://www.youtube.com/embed/TcMBFSGVi1c",
+    "year": 2019,
+    "genre": "Action",
+    "imdb": "8.4",
+    "where": [{"name":"Disney+","url":"https://www.disneyplus.com"}],
+    "downloadText": {"az":"Rəsmi satın al", "tr":"Resmi satın al", "en":"Official purchase"}
   },
-
   {
     "id": "joker",
-    "title": {"az":"Joker","tr":"Joker","en":"Joker"},
+    "title": { "az": "Joker", "tr": "Joker", "en": "Joker" },
     "desc": {
-      "az":"Arthur Fleckin taleyi, komediadan geril bir xarakterə çevrilməsini izah edir.",
-      "tr":"Arthur Fleck'in trajedisi, komediden karanlık bir karaktere dönüşmesini anlatır.",
-      "en":"A failed comedian descends into madness and becomes the criminal mastermind known as Joker."
+      "az": "Arthur Fleckin taleyi, komediadan geril bir xarakterə çevrilməsini izah edir.",
+      "tr": "Arthur Fleck'in trajedisi, komediden karanlık bir karaktere dönüşmesini anlatır.",
+      "en": "A failed comedian descends into madness and becomes the criminal mastermind known as Joker."
     },
-    "poster":"https://m.media-amazon.com/images/M/MV5BNzY3OWQ5NDktNWQ2OC00ZjdlLThkMmItMDhhNDk3NTFiZGU4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-    "trailer":"https://www.youtube.com/embed/zAGVQLHvwOY",
-    "year":2019,
-    "genre":"Drama",
-    "imdb":"8.5",
-    "where":[{"name":"HBO Max","url":"https://www.hbomax.com"}]
+    "poster": "https://m.media-amazon.com/images/M/MV5BNzY3OWQ5NDktNWQ2OC00ZjdlLThkMmItMDhhNDk3NTFiZGU4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "trailer": "https://www.youtube.com/embed/zAGVQLHvwOY",
+    "year": 2019,
+    "genre": "Drama",
+    "imdb": "8.5",
+    "where": [{"name":"HBO Max","url":"https://www.hbomax.com"}],
+    "downloadText": {"az":"Rəsmi satın al", "tr":"Resmi satın al", "en":"Official purchase"}
+  },
+  {
+    "id": "spiderman-no-way-home",
+    "title": { "az":"Spider-Man: No Way Home", "tr":"Spider-Man: No Way Home", "en":"Spider-Man: No Way Home" },
+    "desc": {
+      "az":"Peter Parker multiversumla bağlı böyük problemlərlə üzləşir.",
+      "tr":"Peter Parker çoklu evren sorunları ile karşılaşır.",
+      "en":"Peter Parker faces consequences across the multiverse."
+    },
+    "poster":"https://m.media-amazon.com/images/M/MV5BMmFiZGZjMmEtMTA0Ni00MzA2LTljMTYtZGI2MGJmZWYzZTQ2XkEyXkFqcGc@._V1_.jpg",
+    "trailer":"https://www.youtube.com/embed/JfVOs4VSpmA",
+    "year":2021,
+    "genre":"Action",
+    "imdb":"8.1",
+    "where":[{"name":"Paramount+","url":"https://www.paramountplus.com"}],
+    "downloadText": {"az":"Rəsmi satın al", "tr":"Resmi satın al", "en":"Official purchase"}
+  },
+  {
+    "id": "free-guy",
+    "title": { "az":"Free Guy", "tr":"Free Guy", "en":"Free Guy" },
+    "desc": {
+      "az":"Bir bank işçisi özünün oyun içində NPC olduğunu kəşf edir.",
+      "tr":"Bir banka memuru kendisinin bir oyunun NPC'si olduğunu keşfeder.",
+      "en":"A bank teller discovers he's actually a character inside an open-world video game."
+    },
+    "poster":"https://m.media-amazon.com/images/M/MV5BN2I0MGMxYjUtZTZiMS00MzMxLTkzNWYtMDUyZmUwY2ViYTljXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "trailer":"https://www.youtube.com/embed/X2m-08cOAbc",
+    "year":2021,
+    "genre":"Comedy",
+    "imdb":"7.1",
+    "where":[{"name":"Amazon","url":"https://www.amazon.com"}],
+    "downloadText": {"az":"Rəsmi satın al", "tr":"Resmi satın al", "en":"Official purchase"}
+  },
+  {
+    "id": "interstellar",
+    "title": { "az":"Interstellar", "tr":"Interstellar", "en":"Interstellar" },
+    "desc": {
+      "az":"Kainatda insanlığın gələcəyini təmin etmək üçün bir qrup araşdırıcı səyahət edir.",
+      "tr":"İnsanlığın geleceğini sağlamak için bir grup kaşif uzayda yolculuk yapar.",
+      "en":"A group of explorers travel through a wormhole in space to ensure humanity's survival."
+    },
+    "poster":"https://m.media-amazon.com/images/M/MV5BYzdjMDAxZGItMjI2My00ODA1LTlkNzItOWFjMDU5ZDJlYWY3XkEyXkFqcGc@._V1_.jpg",
+    "trailer":"",
+    "year":2014,
+    "genre":"Sci-Fi",
+    "imdb":"8.6",
+    "where":[{"name":"DVD","url":"#"}],
+    "downloadText": {"az":"Rəsmi satın al", "tr":"Resmi satın al", "en":"Official purchase"}
   }
-
-  /* Daha çox film buraya əlavə et */
 ]
-
