@@ -1,1 +1,36 @@
+[
+  {
+    "id": "avengers-endgame",
+    "title": {"az":"Avengers: Endgame","tr":"Avengers: Endgame","en":"Avengers: Endgame"},
+    "desc": {
+      "az":"Avengers bir daha toplanır və Thanosun etdiklərini geri qaytarmaq üçün mübarizə aparır.",
+      "tr":"Avengers tekrar toplanır ve Thanos'un yaptığı yıkımı tersine çevirmek için mücadele eder.",
+      "en":"The Avengers assemble once more to reverse Thanos' actions and restore balance."
+    },
+    "poster":"https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg",
+    "trailer":"https://www.youtube.com/embed/TcMBFSGVi1c",
+    "year":2019,
+    "genre":"Action",
+    "imdb":"8.4",
+    "where":[{"name":"Disney+","url":"https://www.disneyplus.com"}]
+  },
+
+  {
+    "id": "joker",
+    "title": {"az":"Joker","tr":"Joker","en":"Joker"},
+    "desc": {
+      "az":"Arthur Fleckin taleyi, komediadan geril bir xarakterə çevrilməsini izah edir.",
+      "tr":"Arthur Fleck'in trajedisi, komediden karanlık bir karaktere dönüşmesini anlatır.",
+      "en":"A failed comedian descends into madness and becomes the criminal mastermind known as Joker."
+    },
+    "poster":"https://m.media-amazon.com/images/M/MV5BNzY3OWQ5NDktNWQ2OC00ZjdlLThkMmItMDhhNDk3NTFiZGU4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "trailer":"https://www.youtube.com/embed/zAGVQLHvwOY",
+    "year":2019,
+    "genre":"Drama",
+    "imdb":"8.5",
+    "where":[{"name":"HBO Max","url":"https://www.hbomax.com"}]
+  }
+
+  /* Daha çox film buraya əlavə et */
+]
 
