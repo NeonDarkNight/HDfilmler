@@ -1,253 +1,224 @@
 <!doctype html>
-<html lang="az">
+<html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>MovieLand — Legal Movie Catalog</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>MovieLand — Legal movie catalog</title>
 <style>
-  :root{
-    --bg:#0f0f12; --card:#121217; --muted:#9aa0a6; --accent:#00b3ff;
-    --max-width:1200px;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:var(--bg);color:#fff}
-  .wrap{max-width:var(--max-width);margin:0 auto;padding:12px}
-  header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-  .brand{font-weight:700;font-size:20px;display:flex;gap:10px;align-items:center}
-  .lang{margin-left:8px}
-  .searchbar{flex:1;display:flex;justify-content:center}
-  .searchbar input{width:100%;max-width:520px;padding:10px;border-radius:8px;border:1px solid #222;background:#0b0b0b;color:#fff}
-  nav.cats{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-  nav.cats button{background:#141416;border:1px solid #212226;color:#fff;padding:8px 12px;border-radius:6px;cursor:pointer}
-  .hero-ad{background:#111;padding:12px;border-radius:8px;text-align:center;margin-bottom:12px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
-  .card{background:var(--card);border-radius:10px;overflow:hidden;cursor:pointer;transition:transform .15s}
-  .card:hover{transform:translateY(-4px)}
-  .poster{width:100%;height:240px;object-fit:cover;display:block;background:#222}
-  .ctitle{padding:10px;font-size:15px;text-align:center}
-  footer{padding:20px;text-align:center;color:var(--muted)}
-  /* slide-over detail panel */
-  .detail-panel{position:fixed;right:0;top:0;height:100vh;width:0;background:linear-gradient(180deg,#0b0b0d,#111);overflow:auto;z-index:60;transition:width .25s;box-shadow:-20px 0 60px rgba(0,0,0,.6)}
-  .detail-panel.open{width:100%;max-width:920px}
-  .detail-inner{padding:18px}
-  .close-btn{background:#111;border:1px solid #222;color:#fff;padding:8px 12px;border-radius:6px;cursor:pointer}
-  .movie-meta{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap}
-  .movie-poster{width:220px;border-radius:8px}
-  .meta-right{flex:1}
-  .meta-right h2{margin:0 0 6px}
-  .meta-right p{color:var(--muted);line-height:1.4}
-  .section{margin-top:16px;padding:12px;background:#0b0b0b;border-radius:8px}
-  .ad-slot{background:#17181a;border:2px dashed #2a2a2a;padding:16px;text-align:center;color:var(--muted);border-radius:8px}
-  /* responsive */
-  @media (max-width:700px){
-    .movie-poster{width:100%;height:auto}
-    .poster{height:180px}
-  }
+:root{--bg:#0f0f12;--card:#121217;--muted:#9aa0a6;--accent:#00b3ff;--maxw:1200px}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:#fff}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:14px}
+.header{display:flex;gap:12px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.brand{font-weight:700;font-size:20px}
+.search{flex:1;min-width:200px}
+.search input{width:100%;padding:10px;border-radius:8px;border:1px solid #222;background:#0b0b0b;color:#fff}
+.lang{display:flex;gap:8px;align-items:center}
+.cats{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.cats button{background:#141416;border:1px solid #212226;color:#fff;padding:8px 12px;border-radius:6px;cursor:pointer}
+.hero-ad{background:#111;padding:12px;border-radius:8px;text-align:center;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.card{background:var(--card);border-radius:10px;overflow:hidden;cursor:pointer;transition:transform .15s}
+.card:hover{transform:translateY(-4px)}
+.poster{width:100%;height:220px;object-fit:cover;display:block;background:#222}
+.title{padding:10px;text-align:center;font-size:15px}
+.detail-panel{position:fixed;right:0;top:0;height:100vh;width:0;background:linear-gradient(180deg,#0b0b0d,#111);overflow:auto;z-index:60;transition:width .25s}
+.detail-panel.open{width:100%;max-width:920px}
+.detail-inner{padding:18px}
+.btn{background:#111;border:1px solid #222;color:#fff;padding:8px 12px;border-radius:6px;cursor:pointer}
+.section{margin-top:14px;padding:12px;background:#0b0b0b;border-radius:8px}
+.ad-slot{background:#17181a;border:2px dashed #2a2a2a;padding:16px;text-align:center;color:var(--muted);border-radius:8px}
+@media (max-width:700px){.poster{height:170px}}
 </style>
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <div class="brand">🎬 <span id="siteName">MovieLand</span></div>
-      <div style="display:flex;gap:12px;align-items:center;width:100%">
-        <div class="searchbar"><input id="searchInput" placeholder="Search movies..." /></div>
-        <div class="lang">
-          <select id="langSel" aria-label="language">
-            <option value="az">AZ</option>
-            <option value="tr">TR</option>
-            <option value="en" selected>EN</option>
-          </select>
-        </div>
+    <div class="header">
+      <div class="brand" id="brand">🎬 MovieLand</div>
+      <div class="search"><input id="q" placeholder="Search movies..."></div>
+      <div class="lang">
+        <select id="lang">
+          <option value="az">AZ</option>
+          <option value="tr">TR</option>
+          <option value="en" selected>EN</option>
+        </select>
       </div>
-    </header>
-
-    <!-- top banner ad -->
-    <div class="hero-ad">
-      <div class="ad-slot">Header Banner — Ad Space (728x90 or responsive). Put AdSense script here.</div>
     </div>
 
-    <!-- categories -->
-    <nav class="cats" id="cats"></nav>
+    <div class="hero-ad"><div class="ad-slot">Header Ad Slot — put AdSense code here later</div></div>
 
-    <!-- main grid -->
-    <main>
-      <div class="grid" id="grid"></div>
-    </main>
+    <div class="cats" id="cats"></div>
 
-    <!-- inline ad -->
-    <div style="margin:18px 0"><div class="ad-slot">Inline Ad Slot — 1 (Responsive)</div></div>
+    <main><div class="grid" id="grid"></div></main>
 
-    <footer>© <span id="year"></span> MovieLand — Legal trailers & info</footer>
+    <div style="margin:18px 0"><div class="ad-slot">Inline Ad Slot</div></div>
+
+    <footer style="text-align:center;color:var(--muted);padding:18px">© <span id="yr"></span> MovieLand — trailers & info</footer>
   </div>
 
-  <!-- detail panel -->
   <aside id="detail" class="detail-panel" aria-hidden="true">
     <div class="detail-inner">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
-        <div style="display:flex;gap:12px;align-items:center">
-          <button class="close-btn" onclick="closeDetail()">Close</button>
-          <h3 id="detailTitle" style="margin:0"></h3>
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="display:flex;gap:10px;align-items:center">
+          <button class="btn" onclick="closeDetail()">Close</button>
+          <h3 id="dtitle" style="margin:0"></h3>
         </div>
       </div>
 
-      <div class="movie-meta" style="margin-top:12px">
-        <img id="detailPoster" class="movie-poster" src="" alt="poster">
-        <div class="meta-right">
-          <h2 id="detailName"></h2>
-          <p id="detailDesc"></p>
+      <div style="margin-top:12px;display:flex;gap:18px;flex-wrap:wrap">
+        <img id="dposter" style="width:220px;border-radius:8px" src="" alt="poster">
+        <div style="flex:1">
+          <h2 id="dname"></h2>
+          <p id="ddesc" style="color:var(--muted)"></p>
 
-          <div class="section" id="trailerSection">
-            <h4 data-translate="trailer">Trailer</h4>
-            <div id="trailerWrap" style="margin-top:8px"></div>
-          </div>
-
-          <div class="section" id="infoSection">
-            <h4>Info</h4>
-            <p><strong>Year:</strong> <span id="infoYear"></span></p>
-            <p><strong>Genre:</strong> <span id="infoGenre"></span></p>
-            <p><strong>IMDB:</strong> <span id="infoImdb"></span></p>
-          </div>
-
-          <div class="section" id="whereSection">
-            <h4 data-translate="where">Where to Watch</h4>
-            <p id="whereLinks">Links to legal providers (Netflix, Amazon) will appear here.</p>
+          <div class="section">
+            <h4 data-key="trailer">Trailer</h4>
+            <div id="dtrailer" style="margin-top:8px"></div>
           </div>
 
           <div class="section">
-            <h4 data-translate="download">Download / Save</h4>
-            <p>Authorized download links or purchase links can be added here. (Placeholder)</p>
+            <h4 data-key="info">Info</h4>
+            <p><strong>Year:</strong> <span id="dyear"></span></p>
+            <p><strong>Genre:</strong> <span id="dgenre"></span></p>
+            <p><strong>IMDB:</strong> <span id="dimdb"></span></p>
+          </div>
+
+          <div class="section">
+            <h4 data-key="where">Where to Watch</h4>
+            <div id="dwhere"></div>
+          </div>
+
+          <div class="section">
+            <h4 data-key="download">Download / Save</h4>
+            <p id="ddownload">Authorized links or placeholder</p>
           </div>
 
           <div style="margin-top:12px" class="ad-slot">Detail Page Ad Slot</div>
         </div>
       </div>
-
     </div>
   </aside>
 
 <script>
-/* -------------------------
-  Static movie dataset (example)
-  Replace or wire to TMDB API later
-------------------------- */
-const movies = [
-  { id:'avengers', title:'Avengers: Endgame', year:2019, genre:'Action', poster:'https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg', trailer:'https://www.youtube.com/embed/TcMBFSGVi1c', imdb:'8.4', where: [{name:'Disney+', url:'#'}], desc:'The Avengers assemble to reverse Thanos.'},
-  { id:'joker', title:'Joker', year:2019, genre:'Drama', poster:'https://m.media-amazon.com/images/M/MV5BNzY3OWQ5NDktNWQ2OC00ZjdlLThkMmItMDhhNDk3NTFiZGU4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg', trailer:'https://www.youtube.com/embed/zAGVQLHvwOY', imdb:'8.5', where:[{name:'HBO Max', url:'#'}], desc:'A gritty character study of Arthur Fleck.'},
-  { id:'spiderman', title:'Spider-Man: No Way Home', year:2021, genre:'Action', poster:'https://m.media-amazon.com/images/M/MV5BMmFiZGZjMmEtMTA0Ni00MzA2LTljMTYtZGI2MGJmZWYzZTQ2XkEyXkFqcGc@._V1_.jpg', trailer:'https://www.youtube.com/embed/JfVOs4VSpmA', imdb:'8.1', where:[{name:'Paramount+', url:'#'}], desc:'Peter Parker faces multiverse chaos.'},
-  { id:'freeguy', title:'Free Guy', year:2021, genre:'Comedy', poster:'https://m.media-amazon.com/images/M/MV5BN2I0MGMxYjUtZTZiMS00MzMxLTkzNWYtMDUyZmUwY2ViYTljXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg', trailer:'https://www.youtube.com/embed/X2m-08cOAbc', imdb:'7.1', where:[{name:'Amazon', url:'#'}], desc:'A bank teller discovers he is an NPC.'},
-  { id:'interstellar', title:'Interstellar', year:2014, genre:'Sci-Fi', poster:'https://m.media-amazon.com/images/M/MV5BYzdjMDAxZGItMjI2My00ODA1LTlkNzItOWFjMDU5ZDJlYWY3XkEyXkFqcGc@._V1_.jpg', trailer:'', imdb:'8.6', where:[{name:'DVD', url:'#'}], desc:'Explorers travel through a wormhole to save humanity.'}
-];
+const yr=document.getElementById('yr'); yr.textContent = new Date().getFullYear();
+const grid=document.getElementById('grid'), catsEl=document.getElementById('cats'), q=document.getElementById('q'), langSel=document.getElementById('lang');
+let movies = []; // will be loaded from movies.json
+let currentLang = localStorage.getItem('lang') || 'en';
 
-/* UI elements */
-const grid = document.getElementById('grid');
-const cats = document.getElementById('cats');
-const searchInput = document.getElementById('searchInput');
-const langSel = document.getElementById('langSel');
-const yearSpan = document.getElementById('year');
-yearSpan.textContent = new Date().getFullYear();
+/* translation keys for static labels */
+const uiTranslations = {
+  az:{trailer:'Fragman', info:'Məlumat', where:'Harada izləmək', download:'Yüklə'},
+  tr:{trailer:'Fragman', info:'Bilgi', where:'Nerede İzlenir', download:'İndir'},
+  en:{trailer:'Trailer', info:'Info', where:'Where to Watch', download:'Download'}
+};
 
-/* build categories */
-const categories = ['all', ...Array.from(new Set(movies.map(m=>m.genre.toLowerCase())))];
-function renderCats(){
-  cats.innerHTML = '';
-  categories.forEach(cat=>{
-    const b=document.createElement('button');
-    b.textContent = cat==='all' ? 'All' : capitalize(cat);
-    b.onclick = ()=>filterBy(cat);
-    cats.appendChild(b);
+function applyStaticLang(){
+  document.querySelectorAll('[data-key]').forEach(el=>{
+    const k=el.getAttribute('data-key');
+    el.textContent = uiTranslations[currentLang][k] || el.textContent;
   });
 }
 
-/* render grid */
+/* load movies.json */
+async function loadMovies(){
+  try{
+    const res = await fetch('./movies.json');
+    movies = await res.json();
+    buildCategories();
+    renderGrid(movies);
+    applyStaticLang();
+    langSel.value = currentLang;
+  }catch(e){
+    console.error('Failed loading movies.json', e);
+    grid.innerHTML = '<div style="padding:20px;color:var(--muted)">Failed to load movies.json</div>';
+  }
+}
+
+/* categories */
+function buildCategories(){
+  const cats = ['all', ...Array.from(new Set(movies.map(m => (m.genre||'Other').toLowerCase())))];
+  catsEl.innerHTML='';
+  cats.forEach(c=>{
+    const b=document.createElement('button');
+    b.textContent = c==='all'? (currentLang==='az'?'Hamısı':currentLang==='tr'?'Tümü':'All') : capitalize(c);
+    b.onclick = ()=>filterBy(c);
+    catsEl.appendChild(b);
+  });
+}
+
+/* grid rendering */
 function renderGrid(list){
   grid.innerHTML='';
   list.forEach(m=>{
-    const d=document.createElement('div');
-    d.className='card';
-    d.innerHTML = `<img class="poster" loading="lazy" src="${m.poster}" alt="${escapeHtml(m.title)}"><div class="ctitle">${escapeHtml(m.title)}</div>`;
-    d.onclick = ()=>openDetail(m.id);
-    grid.appendChild(d);
+    const card = document.createElement('div');
+    card.className='card';
+    const poster = m.poster || '';
+    card.innerHTML = `<img class="poster" loading="lazy" src="${poster}" alt="${escapeHtml(m.title[currentLang]||m.title.en)}"><div class="title">${escapeHtml(m.title[currentLang]||m.title.en)}</div>`;
+    card.onclick = ()=>openDetail(m.id);
+    grid.appendChild(card);
   });
 }
 
-/* filtering & searching */
+/* filter & search */
 function filterBy(cat){
   if(cat==='all') renderGrid(movies);
-  else renderGrid(movies.filter(m=>m.genre.toLowerCase()===cat));
+  else renderGrid(movies.filter(m=> (m.genre||'').toLowerCase() === cat ));
 }
-searchInput.addEventListener('input', ()=> {
-  const q=searchInput.value.trim().toLowerCase();
-  if(!q) renderGrid(movies);
-  else renderGrid(movies.filter(m=>m.title.toLowerCase().includes(q) || (m.desc||'').toLowerCase().includes(q)));
+q.addEventListener('input', ()=> {
+  const val = q.value.trim().toLowerCase();
+  if(!val) renderGrid(movies);
+  else renderGrid(movies.filter(m => (m.title[currentLang]||m.title.en).toLowerCase().includes(val) || (m.desc[currentLang]||m.desc.en||'').toLowerCase().includes(val)));
 });
 
-/* open detail in same page (slide-over) */
+/* detail panel */
 const detail = document.getElementById('detail');
 function openDetail(id){
   const m = movies.find(x=>x.id===id);
   if(!m) return;
-  document.getElementById('detailTitle').textContent = m.title;
-  document.getElementById('detailName').textContent = m.title;
-  document.getElementById('detailDesc').textContent = m.desc;
-  document.getElementById('detailPoster').src = m.poster;
-  document.getElementById('infoYear').textContent = m.year;
-  document.getElementById('infoGenre').textContent = m.genre;
-  document.getElementById('infoImdb').textContent = m.imdb;
-  // trailer (same page)
-  const trailerWrap = document.getElementById('trailerWrap');
+  document.getElementById('dtitle').textContent = m.title[currentLang] || m.title.en;
+  document.getElementById('dname').textContent = m.title[currentLang] || m.title.en;
+  document.getElementById('ddesc').textContent = m.desc[currentLang] || m.desc.en || '';
+  document.getElementById('dposter').src = m.poster || '';
+  document.getElementById('dyear').textContent = m.year || '';
+  document.getElementById('dgenre').textContent = m.genre || '';
+  document.getElementById('dimdb').textContent = m.imdb || '';
+  // trailer
+  const wrap = document.getElementById('dtrailer');
   if(m.trailer){
-    trailerWrap.innerHTML = `<iframe src="${m.trailer}" width="100%" height="360" frameborder="0" allowfullscreen></iframe>`;
+    wrap.innerHTML = `<iframe src="${m.trailer}" width="100%" height="360" frameborder="0" allowfullscreen></iframe>`;
   } else {
-    trailerWrap.innerHTML = `<p style="color:var(--muted)"><i>No trailer available</i></p>`;
+    wrap.innerHTML = `<p style="color:var(--muted)"><i>No trailer available</i></p>`;
   }
-  // where to watch
-  const where = document.getElementById('whereLinks');
-  where.innerHTML = m.where.map(w=>`<a href="${w.url}" style="color:var(--accent)">${w.name}</a>`).join(' • ');
-  detail.classList.add('open');
-  detail.setAttribute('aria-hidden','false');
-  // push history for back button behaviour
+  // where links
+  const where = document.getElementById('dwhere');
+  where.innerHTML = (m.where||[]).map(w=>`<a href="${w.url}" target="_blank" style="color:var(--accent);margin-right:8px">${escapeHtml(w.name)}</a>`).join('');
+  document.getElementById('ddownload').textContent = m.downloadText ? (m.downloadText[currentLang] || m.downloadText.en) : '—';
+  detail.classList.add('open'); detail.setAttribute('aria-hidden','false');
   history.pushState({movie:id},'',`#${id}`);
 }
 
 /* close */
-function closeDetail(){
-  detail.classList.remove('open');
-  detail.setAttribute('aria-hidden','true');
-  if(location.hash) history.pushState(null, '', location.pathname);
-}
+function closeDetail(){ detail.classList.remove('open'); detail.setAttribute('aria-hidden','true'); if(location.hash) history.pushState(null,'',location.pathname); }
 
 /* helpers */
-function capitalize(s){ return s.charAt(0).toUpperCase()+s.slice(1) }
-function escapeHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') }
+function capitalize(s){ return s? s.charAt(0).toUpperCase()+s.slice(1):'' }
+function escapeHtml(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') }
 
-/* language translate (simple keys) */
-const translations = {
-  az:{trailer:'Fragman', where:'Harada izləmək', download:'Yüklə'},
-  tr:{trailer:'Fragman', where:'Nerede İzlenir', download:'İndir'},
-  en:{trailer:'Trailer', where:'Where to Watch', download:'Download'}
-};
-function applyLang(lang){
-  document.querySelectorAll('[data-translate]').forEach(el=>{
-    const k=el.getAttribute('data-translate');
-    el.textContent = translations[lang][k] || el.textContent;
-  });
-}
-langSel.addEventListener('change', ()=>applyLang(langSel.value));
-
-/* init */
-renderCats();
-renderGrid(movies);
-applyLang('en');
-
-/* handle history back/forward to close detail */
-window.addEventListener('popstate', (ev)=>{
-  if(ev.state && ev.state.movie) openDetail(ev.state.movie);
-  else closeDetail();
+/* language switching */
+langSel.addEventListener('change', ()=> {
+  currentLang = langSel.value;
+  localStorage.setItem('lang', currentLang);
+  applyStaticLang();
+  renderGrid(movies);
 });
 
-/* Accessibility: close on Escape */
-window.addEventListener('keydown', e=>{ if(e.key==='Escape') closeDetail(); });
+/* back/forward handling */
+window.addEventListener('popstate', e=> {
+  if(e.state && e.state.movie) openDetail(e.state.movie); else closeDetail();
+});
+window.addEventListener('keydown', e=> { if(e.key==='Escape') closeDetail(); });
 
+/* init */
+loadMovies();
 </script>
 </body>
 </html>
