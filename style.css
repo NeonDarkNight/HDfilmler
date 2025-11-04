@@ -1,0 +1,19 @@
+.movie img,
+.movie-poster {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+.movie-details img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  margin: 20px auto;
+  border-radius: 12px;
+}
